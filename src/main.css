@@ -1,0 +1,75 @@
+:root {
+	--padding: 8px;
+	--radius: var(--padding);
+	--transition: 0.25s ease-in-out;
+
+	--bg: #FFFFFF;
+	--box: var(--bg);
+	--input: #F8F8F8;
+	--inputborder: var(--main);
+
+	--main: #ECAFDA;
+	--wrong: #FF7477;
+	--correct: #7BE0AD;
+	--word: #D3D2C7;
+
+	--shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+}
+
+body {
+	display: flex;
+	align-items: center;
+}
+
+input, body, button {
+	font-family: "Roboto Mono", monospace;
+}
+
+#main {
+	--width: calc(30vw - var(--padding));
+	width: var(--width);
+
+	background: var(--box);
+	box-shadow: var(--shadow);
+	border-radius: var(--radius);
+
+	left: 50%;
+	position: fixed;
+	align-items: center;
+	padding: var(--padding);
+	margin-left: calc(var(--width) * -1 / 2);
+}
+
+#hud {
+	--offset: -30px;
+	position: absolute;
+	text-align: center;
+	width: calc(100% - calc(var(--padding) * 2));
+}
+#hud:first-child {top: var(--offset)}
+#hud:last-child {bottom: var(--offset)}
+
+#words {
+	display: flex;
+	min-height: 15vh;
+	font-weight: 600;
+	color: var(--word);
+}
+
+#words .word {margin-left: var(--padding)}
+#words .word:first-child {margin-left: 0px}
+
+#words .word.wrong {color: var(--wrong)}
+#words .word.correct {color: var(--correct)}
+
+#input {
+	width: 100%;
+	outline: none;
+	background: var(--input);
+	border: var(--input) 2px solid;
+	padding: calc(var(--padding) / 1.5);
+	transition: border var(--transition);
+	border-radius: calc(var(--radius) / 2);
+}
+
+#input:focus {border: var(--inputborder) 2px solid}
