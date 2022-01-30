@@ -109,6 +109,6 @@ input.addEventListener("keydown", (e) => {
 		let current = getstats();
 		if (current.cpm.toString() == "NaN") {return}
 		if (current.cpm == 0) {return}
-		stats.innerHTML = `${current.cpm} CPM / ${current.wpm} / ${current.acc}% ACC`
+		stats.innerHTML = `${current.cpm} CPM / ${current.wpm} WPM / ${current.acc}% ACC`
 	}
 })
