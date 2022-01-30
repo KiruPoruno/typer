@@ -6,8 +6,19 @@ async function getwords(count) {
 	let words = await (await fetch("words/en.json")).json();
 	let list = [];
 	
+	let lastword = "";
 	for (let i = 0; i < count; i++) {
-		list.push(words[Math.floor(Math.random()*words.length)])
+		let getword = () => {
+			let word = words[Math.floor(Math.random()*words.length)] 
+			if (word == lastword) {
+				return getword()
+			} else {
+				lastword = word;
+				return word
+			}
+		}
+
+		list.push(getword())
 	}
 
 	return list;
