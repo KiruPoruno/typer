@@ -18,4 +18,44 @@ async function generate() {
 	}
 
 	words.children[0].classList.toggle("next");
+}; generate()
+
+function validateNext() {
+	let next = document.querySelector(".word.next");
+
+	if (input.value.replace(/.* /g, "") == next.innerHTML) {
+		return true;
+	}
 }
+
+function next() {
+	let divs = words.querySelectorAll(".word");
+
+	for (let i = 0; i < divs.length; i++) {
+		if (divs[i].classList.contains("next")) {
+			if (validateNext()) {
+				divs[i].classList.add("correct");
+			} else {
+				divs[i].classList.add("wrong");
+			}
+
+			divs[i].classList.remove("next");
+			if (divs[i + 1]) {
+				divs[i + 1].classList.add("next");
+			}
+			return
+		}
+	}
+}
+
+input.addEventListener("keydown", (e) => {
+	switch(e.code) {
+		case "Space":
+			next();
+			input.value = "";
+			break;
+		case "Escape":
+			generate();
+			break;
+	}
+})
