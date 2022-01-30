@@ -19,6 +19,7 @@
 body {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 input, body, button {
@@ -26,18 +27,17 @@ input, body, button {
 }
 
 #main {
-	--width: calc(30vw - var(--padding));
-	width: var(--width);
+	width: 30vw;
+	min-width: 350px;
+	max-width: 500px;
 
 	background: var(--box);
 	box-shadow: var(--shadow);
 	border-radius: var(--radius);
 
-	left: 50%;
 	position: fixed;
 	align-items: center;
 	padding: var(--padding);
-	margin-left: calc(var(--width) * -1 / 2);
 }
 
 #hud {
@@ -51,7 +51,7 @@ input, body, button {
 
 #words {
 	display: flex;
-	min-height: 15vh;
+	min-height: 10vh;
 	font-weight: 600;
 	color: var(--word);
 }
