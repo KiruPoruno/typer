@@ -41,14 +41,14 @@ input, body, button {
 	padding: var(--padding);
 }
 
-#hud {
+.hud {
 	--offset: -30px;
 	position: absolute;
 	text-align: center;
 	width: calc(100% - calc(var(--padding)));
 }
-#hud:first-child {top: var(--offset)}
-#hud:last-child {bottom: var(--offset)}
+.hud:first-child {top: var(--offset)}
+.hud:last-child {bottom: var(--offset)}
 
 #words {
 	display: flex;
