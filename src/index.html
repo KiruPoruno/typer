@@ -12,7 +12,25 @@
 	<body>
 
 		<div id="main">
-			<div class="hud">10 / 25 / 60 - WORDS / TIME</div>
+			<div class="hud">
+				Words /
+				<form onchange="generate()">
+					<input type="radio" name="words" value="10" id="10">
+					<label for="10">10</label><br>
+					<input type="radio" name="words" value="25" id="25">
+					<label for="25">25</label><br>
+					<input type="radio" name="words" value="35" id="35" checked>
+					<label for="35">35</label>
+					<input type="radio" name="words" value="60" id="60">
+					<label for="60">60</label>
+					<input type="radio" name="words" value="100" id="100">
+					<label for="100">100</label>
+					<input type="radio" name="words" value="150" id="150">
+					<label for="150">150</label>
+					<input type="radio" name="words" value="150" id="200">
+					<label for="200">200</label>
+				</form>
+			</div>
 			<div id="words"></div>
 			<input id="input">
 			<div id="stats" class="hud">0 CPM / 0 WPM / 0% ACC</div>

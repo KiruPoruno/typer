@@ -14,10 +14,11 @@ async function getwords(count) {
 }
 
 async function generate() {
+	input.focus();
 	words.innerHTML = "";
 	let html = "";
 
-	let list = await getwords(10);
+	let list = await getwords(document.querySelector("input[name='words']:checked").value);
 	for (let i = 0; i < list.length; i++) {
 		html = html + `<span class="word">${list[i]}</span>`;
 	}
@@ -58,7 +59,7 @@ function getstats() {
 	return {
 		cpm: speed(chars),
 		wpm: speed(correct.length),
-		acc: correct.length * 100 / divs.length,
+		acc: Math.floor(correct.length * 100 / divs.length),
 	}
 }
 
@@ -89,6 +90,7 @@ input.addEventListener("keydown", (e) => {
 	switch(e.code) {
 		case "Space":
 		case "Enter":
+			e.preventDefault();
 			next();
 			input.value = "";
 
@@ -106,6 +108,7 @@ input.addEventListener("keydown", (e) => {
 	if (! inprogress) {
 		let current = getstats();
 		if (current.cpm.toString() == "NaN") {return}
+		if (current.cpm == 0) {return}
 		stats.innerHTML = `${current.cpm} CPM / ${current.wpm} / ${current.acc}% ACC`
 	}
 })

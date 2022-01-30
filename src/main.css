@@ -43,12 +43,33 @@ input, body, button {
 
 .hud {
 	--offset: -30px;
+
+	display: flex;
 	position: absolute;
-	text-align: center;
+	justify-content: center;
 	width: calc(100% - calc(var(--padding)));
 }
 .hud:first-child {top: var(--offset)}
 .hud:last-child {bottom: var(--offset)}
+
+.hud form {
+	display: flex;
+	justify-content: center;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.hud form label {
+	margin-left: calc(var(--padding) * 2);
+	transition: color var(--transition);
+}
+.hud form label:last-child {margin-right: 0px}
+
+input[type="radio"]:checked + label {
+	color: var(--main);
+}
 
 #words {
 	display: flex;
