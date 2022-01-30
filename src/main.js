@@ -15,12 +15,14 @@ async function getwords(count) {
 
 async function generate() {
 	words.innerHTML = "";
+	let html = "";
 
 	let list = await getwords(10);
 	for (let i = 0; i < list.length; i++) {
-		words.innerHTML += `<span class="word">${list[i]}</span>`;
+		html = html + `<span class="word">${list[i]}</span>`;
 	}
 
+	words.innerHTML = html;
 	words.children[0].classList.toggle("next");
 }; generate()
 
@@ -46,7 +48,7 @@ function getstats() {
 	let correct = words.querySelectorAll(".word.correct");
 	let chars = 0;
 	let speed = (speed) => {
-		return speed / timer * 60;
+		return Math.floor(speed / timer * 60);
 	}
 
 	for (let i = 0; i < correct.length; i++) {
@@ -89,6 +91,12 @@ input.addEventListener("keydown", (e) => {
 		case "Enter":
 			next();
 			input.value = "";
+
+			if (! words.querySelector(".next")) {
+				if (e.code == "Enter") {
+					generate();
+				}
+			}
 			break;
 		case "Escape":
 			generate();
