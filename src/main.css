@@ -9,6 +9,7 @@
 	--inputborder: var(--main);
 
 	--main: #ECAFDA;
+	--next: #B0B0B0;
 	--wrong: #FF7477;
 	--correct: #7BE0AD;
 	--word: #D3D2C7;
@@ -44,21 +45,28 @@ input, body, button {
 	--offset: -30px;
 	position: absolute;
 	text-align: center;
-	width: calc(100% - calc(var(--padding) * 2));
+	width: calc(100% - calc(var(--padding)));
 }
 #hud:first-child {top: var(--offset)}
 #hud:last-child {bottom: var(--offset)}
 
 #words {
 	display: flex;
+	flex-wrap: wrap;
+
 	min-height: 10vh;
 	font-weight: 600;
-	color: var(--word);
 }
 
-#words .word {margin-left: var(--padding)}
-#words .word:first-child {margin-left: 0px}
+#words .word {
+	color: var(--word);
+	transition: color var(--transition);
+}
 
+#words .word {margin-right: var(--padding)}
+#words .word:last-child {margin-right: 0px}
+
+#words .word.next {color: var(--next)}
 #words .word.wrong {color: var(--wrong)}
 #words .word.correct {color: var(--correct)}
 
@@ -66,10 +74,11 @@ input, body, button {
 	width: 100%;
 	outline: none;
 	background: var(--input);
-	border: var(--input) 2px solid;
+	margin-top: var(--padding);
+	border: var(--input) 3px solid;
 	padding: calc(var(--padding) / 1.5);
 	transition: border var(--transition);
 	border-radius: calc(var(--radius) / 2);
 }
 
-#input:focus {border: var(--inputborder) 2px solid}
+#input:focus {border: var(--inputborder) 3px solid}
