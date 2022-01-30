@@ -2,6 +2,16 @@ let timer = 0;
 let inprogress = false;
 let interval;
 
+function init() {
+	try {
+		if (localStorage.getItem("words")) {
+			document.querySelector(`input[name="words"][value="${localStorage.getItem('words')}"]`).checked = true
+		}
+	}catch(err) {}
+
+	generate();
+}
+
 async function getwords(count) {
 	let words = await (await fetch("words/en.json")).json();
 	let list = [];
@@ -29,14 +39,17 @@ async function generate() {
 	words.innerHTML = "";
 	let html = "";
 
-	let list = await getwords(document.querySelector("input[name='words']:checked").value);
+	let checked = document.querySelector("input[name='words']:checked").value;
+	localStorage.setItem("words", checked)
+
+	let list = await getwords(checked);
 	for (let i = 0; i < list.length; i++) {
 		html = html + `<span class="word">${list[i]}</span>`;
 	}
 
 	words.innerHTML = html;
 	words.children[0].classList.toggle("next");
-}; generate()
+}
 
 function validateNext() {
 	if (! inprogress) {
@@ -123,3 +136,5 @@ input.addEventListener("keydown", (e) => {
 		stats.innerHTML = `${current.cpm} CPM / ${current.wpm} WPM / ${current.acc}% ACC`
 	}
 })
+
+init()
