@@ -1,7 +1,15 @@
+<p align="center">
+	<b>typer</b><br>
+	A very minimal online typing speed test
+	<img src="assets/typer-preview.png">
+</p>
+
+## Why does this exist
+
 Essentially, I've never liked many typing tests, the few I like are
-sites like typings.gg (which should be obvious by the design), however
-it did not have CPM (characters per minute) and only WPM (words), some
-may argue one is more accurate than the other.
+sites like [typings.gg](https://typings.gg) (which should be obvious by
+the design), however it did not have CPM (characters per minute) and
+only WPM (words), some may argue one is more accurate than the other.
 
 However, I was bored, and was also annoyed about how every time I have
 to tell somebody what speed I type at it won't work because said person
@@ -14,8 +22,9 @@ because I was bored. And because I wanted to.
 
 
 So here it is completely free and open source, and if you want you can
-enjoy it over on my website: https://typer.kiru.gay
+enjoy it over on my website: [typer.kiru.gay](https://typer.kiru.gay)
 
+## The future of typer
 
 I'm considering adding a time based test, more languages, and maybe
 themes, however all of those sort of take away from the simplicity of
