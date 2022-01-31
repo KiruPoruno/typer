@@ -40,6 +40,7 @@ async function getwords(count) {
 async function generate() {
 	inprogress = false;
 	clearTimeout(interval);
+	input.value = "";
 
 	input.focus();
 	words.innerHTML = "";
