@@ -24,6 +24,15 @@ because I was bored. And because I wanted to.
 So here it is completely free and open source, and if you want you can
 enjoy it over on my website: [typer.kiru.gay](https://typer.kiru.gay)
 
+## Keyboard Shortcuts
+
+To make it far easier to use, there's various keyboard shortcuts to
+quickly navigate typer.
+
+<kbd>Escape</kbd> or <kbd>Ctrl</kbd>: Generate new text<br>
+<kbd>Enter</kbd>: If your finished with a test it'll generate new text<br>
+<kbd>Tab</kbd>: Change the word count
+
 ## The future of typer
 
 I'm considering adding a time based test, more languages, and maybe
