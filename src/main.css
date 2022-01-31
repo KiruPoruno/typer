@@ -4,6 +4,7 @@
 	--transition: 0.05s ease-in-out;
 
 	--bg: #FFFFFF;
+	--fg: #000000;
 	--box: var(--bg);
 	--input: #F8F8F8;
 	--inputborder: var(--main);
@@ -17,13 +18,28 @@
 	--shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
 }
 
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg: #242426;
+		--fg: #FFFFFF;
+		--box: #42444C;
+		--input: var(--bg);
+
+		--next: #FFFFFF;
+		--word: #B0B0B0;
+	}
+}
+
 body {
 	display: flex;
 	align-items: center;
+	background: var(--bg);
 	justify-content: center;
 }
 
 input, body, button {
+	color: var(--fg);
 	font-family: "Roboto Mono", monospace;
 }
 
@@ -47,7 +63,7 @@ input, body, button {
 	display: flex;
 	position: absolute;
 	justify-content: center;
-	width: calc(100% - calc(var(--padding)));
+	width: calc(100% - calc(var(--padding) * 2));
 }
 .hud:first-child {top: var(--offset)}
 .hud:last-child {bottom: var(--offset)}
