@@ -138,9 +138,29 @@ input.addEventListener("keydown", (e) => {
 			}
 			break;
 		case "Escape":
+		case "ControlLeft":
 			generate();
 			break;
+		case "Tab":
+			e.preventDefault()
+			let speeds = document.querySelectorAll("input[name='words']");
+
+			for (let i = 0; i < speeds.length; i++) {
+				if (speeds[i].checked) {
+					if (speeds[i + 1]) {
+						speeds[i + 1].checked = true;
+					} else {
+						speeds[0].checked = true;
+					}
+
+					speeds[i].checked = false;
+					generate();
+					break
+				}
+			}
+			break;
 	}
+	console.log(e.code)
 
 	if (! inprogress) {
 		let current = getstats();
