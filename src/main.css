@@ -19,7 +19,7 @@
 }
 
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
 	:root {
 		--bg: #242426;
 		--fg: #FFFFFF;
