@@ -11,6 +11,12 @@ async function init() {
 		}
 	}catch(err) {}
 
+	try {
+		if (localStorage.getItem("theme")) {
+			document.head.innerHTML += `<link rel="stylesheet" href="themes/${localStorage.getItem('theme')}.css">`
+		}
+	}catch(err) {}
+
 	json = await (await fetch("words/en.json")).json();
 	generate();
 }

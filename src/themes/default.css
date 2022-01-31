@@ -1,0 +1,31 @@
+:root {
+	--padding: 8px;
+	--radius: var(--padding);
+	--transition: 0.05s ease-in-out;
+
+	--bg: #FFFFFF;
+	--fg: #000000;
+	--box: var(--bg);
+	--input: #F8F8F8;
+	--inputborder: var(--main);
+
+	--main: #ECAFDA;
+	--next: #B0B0B0;
+	--wrong: #FF7477;
+	--correct: #7BE0AD;
+	--word: #D3D2C7;
+
+	--shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #242426;
+		--fg: #FFFFFF;
+		--box: #42444C;
+		--input: var(--bg);
+
+		--next: #FFFFFF;
+		--word: #B0B0B0;
+	}
+}
