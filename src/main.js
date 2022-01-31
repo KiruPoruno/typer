@@ -1,19 +1,22 @@
+let interval;
 let timer = 0;
 let inprogress = false;
-let interval;
 
-function init() {
+let json = [];
+
+async function init() {
 	try {
 		if (localStorage.getItem("words")) {
 			document.querySelector(`input[name="words"][value="${localStorage.getItem('words')}"]`).checked = true
 		}
 	}catch(err) {}
 
+	json = await (await fetch("words/en.json")).json();
 	generate();
 }
 
 async function getwords(count) {
-	let words = await (await fetch("words/en.json")).json();
+	let words = json;
 	let list = [];
 	
 	let lastword = "";
