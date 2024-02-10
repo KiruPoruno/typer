@@ -1,7 +1,9 @@
 @import "themes/default.css";
 
 body {
+	height: 100vh;
 	display: flex;
+	overflow:hidden;
 	align-items: center;
 	background: var(--bg);
 	justify-content: center;
